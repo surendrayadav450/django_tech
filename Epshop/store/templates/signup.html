@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-4 mx-auto border rounded pt-4 ">
+            <h3 class="alert alert-light border rounded">Create an Account</h3>
+            <form action="/signup/" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                  </div>
+                  {% endif %}
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input type="text"  class="form-control form-control-sm" name="firstname"  value="{{values.first_name}}" id="" >
+                </div>
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control form-control-sm" name="lastname" value="{{values.last_name}}" id="" >
+                </div>
+                <div class="form-group">
+                    <label for="">Mobile number</label>
+                    <input type="text" class="form-control form-control-sm" name="phone" value="{{values.phone}}" id="" >
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control form-control-sm" name="email" value="{{values.email}}" id="" placeholder="xyz@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="Password" class="form-control form-control-sm" name="password" id="" placeholder="********" >
+                </div>
+                <div class="form-group">
+                    <input type="submit"  value="Create Account"
+                        class="btn btn-sm btn-info" />
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
